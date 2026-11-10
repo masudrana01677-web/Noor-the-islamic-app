@@ -1,0 +1,6 @@
+{
+  "name": "Noor",
+  "description": "Your peaceful daily Islamic companion with prayer times, Qibla compass, full Quran reader and audio player, verified Hadith, fasting schedule and tasbih.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
