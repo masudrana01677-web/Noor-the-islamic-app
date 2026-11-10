@@ -123,6 +123,13 @@ class NoorViewModel(application: Application) : AndroidViewModel(application), S
     val activeSurahNumber = MutableStateFlow(1)
     val activeSurahVerses = MutableStateFlow<List<Ayah>>(emptyList())
     val isSurahLoading = MutableStateFlow(false)
+    val cachedSurahNumbers: StateFlow<Set<Int>> = dao.getCachedSurahNumbersFlow()
+        .map { it.toSet() }
+        .stateIn(
+            viewModelScope,
+            SharingStarted.WhileSubscribed(5000),
+            emptySet()
+        )
 
     // Bookmarks & Progress
     val bookmarks = dao.getAllBookmarks().stateIn(
@@ -203,7 +210,12 @@ class NoorViewModel(application: Application) : AndroidViewModel(application), S
             }
         }
 
-        // Load initial Surah
+        // Pre-seed bundled Surahs into Room database for instant offline access
+        viewModelScope.launch {
+            QuranRepository.seedBundledSurahs(dao)
+        }
+
+        // Load initial Surah with Room persistence
         loadSurah(1)
 
         // Register sensors for Qibla
@@ -473,7 +485,7 @@ class NoorViewModel(application: Application) : AndroidViewModel(application), S
         activeSurahNumber.value = surahNumber
         isSurahLoading.value = true
         viewModelScope.launch {
-            val verses = QuranRepository.getSurahVerses(surahNumber)
+            val verses = QuranRepository.getSurahVerses(surahNumber, dao)
             activeSurahVerses.value = verses
             isSurahLoading.value = false
 
@@ -489,6 +501,12 @@ class NoorViewModel(application: Application) : AndroidViewModel(application), S
                     )
                 )
             }
+        }
+    }
+
+    fun cacheSurahOffline(surahNumber: Int) {
+        viewModelScope.launch {
+            QuranRepository.getSurahVerses(surahNumber, dao)
         }
     }
 

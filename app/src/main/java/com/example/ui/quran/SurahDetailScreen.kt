@@ -57,6 +57,8 @@ fun SurahDetailScreen(
     val isLoading by viewModel.isSurahLoading.collectAsStateWithLifecycle()
     val bookmarks by viewModel.bookmarks.collectAsStateWithLifecycle()
     val playerState by viewModel.audioPlayer.playerState.collectAsStateWithLifecycle()
+    val cachedSurahs by viewModel.cachedSurahNumbers.collectAsStateWithLifecycle()
+    val isCached = cachedSurahs.contains(surahNumber)
 
     val surah = remember(surahNumber) {
         viewModel.surahList.firstOrNull { it.number == surahNumber } ?: viewModel.surahList[0]
@@ -178,7 +180,7 @@ fun SurahDetailScreen(
             ) {
                 // Header Banner
                 item {
-                    SurahHeaderBanner(surah = surah)
+                    SurahHeaderBanner(surah = surah, isCached = isCached)
                 }
 
                 // Bengali Pronunciation Recitation Switch Banner
@@ -328,7 +330,10 @@ fun SurahDetailScreen(
 }
 
 @Composable
-private fun SurahHeaderBanner(surah: Surah) {
+private fun SurahHeaderBanner(
+    surah: Surah,
+    isCached: Boolean = false
+) {
     Card(
         modifier = Modifier.fillMaxWidth(),
         shape = RoundedCornerShape(20.dp),
@@ -360,6 +365,32 @@ private fun SurahHeaderBanner(surah: Surah) {
                 style = MaterialTheme.typography.bodySmall,
                 color = MaterialTheme.colorScheme.onPrimaryContainer.copy(alpha = 0.8f)
             )
+            if (isCached) {
+                Spacer(modifier = Modifier.height(8.dp))
+                Surface(
+                    shape = RoundedCornerShape(12.dp),
+                    color = MaterialTheme.colorScheme.surface.copy(alpha = 0.85f)
+                ) {
+                    Row(
+                        modifier = Modifier.padding(horizontal = 10.dp, vertical = 4.dp),
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        Icon(
+                            imageVector = Icons.Default.CheckCircle,
+                            contentDescription = "Saved in Room Database",
+                            tint = MaterialTheme.colorScheme.primary,
+                            modifier = Modifier.size(13.dp)
+                        )
+                        Spacer(modifier = Modifier.width(4.dp))
+                        Text(
+                            text = "Saved Offline (Room Database)",
+                            style = MaterialTheme.typography.labelSmall,
+                            color = MaterialTheme.colorScheme.primary,
+                            fontWeight = FontWeight.Bold
+                        )
+                    }
+                }
+            }
         }
     }
 }

@@ -39,6 +39,7 @@ fun QuranScreen(
     val allSurahs = viewModel.surahList
     val bookmarks by viewModel.bookmarks.collectAsStateWithLifecycle()
     val readingProgress by viewModel.readingProgress.collectAsStateWithLifecycle()
+    val cachedSurahs by viewModel.cachedSurahNumbers.collectAsStateWithLifecycle()
 
     val filteredSurahs = remember(searchQuery) {
         if (searchQuery.isBlank()) allSurahs else allSurahs.filter {
@@ -157,7 +158,11 @@ fun QuranScreen(
                         verticalArrangement = Arrangement.spacedBy(8.dp)
                     ) {
                         items(filteredSurahs, key = { it.number }) { surah ->
-                            SurahListItem(surah = surah, onClick = { onSelectSurah(surah.number) })
+                            SurahListItem(
+                                surah = surah,
+                                isCached = cachedSurahs.contains(surah.number),
+                                onClick = { onSelectSurah(surah.number) }
+                            )
                         }
                     }
                 }
@@ -273,6 +278,7 @@ fun QuranScreen(
 @Composable
 private fun SurahListItem(
     surah: Surah,
+    isCached: Boolean = false,
     onClick: () -> Unit
 ) {
     Card(
@@ -316,11 +322,39 @@ private fun SurahListItem(
                         style = MaterialTheme.typography.titleMedium,
                         fontWeight = FontWeight.Bold
                     )
-                    Text(
-                        text = "${surah.translationEn} • ${surah.totalVerses} Ayahs",
-                        style = MaterialTheme.typography.bodySmall,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant
-                    )
+                    Row(verticalAlignment = Alignment.CenterVertically) {
+                        Text(
+                            text = "${surah.translationEn} • ${surah.totalVerses} Ayahs",
+                            style = MaterialTheme.typography.bodySmall,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant
+                        )
+                        if (isCached) {
+                            Spacer(modifier = Modifier.width(6.dp))
+                            Surface(
+                                color = MaterialTheme.colorScheme.primaryContainer.copy(alpha = 0.7f),
+                                shape = RoundedCornerShape(4.dp)
+                            ) {
+                                Row(
+                                    modifier = Modifier.padding(horizontal = 4.dp, vertical = 1.dp),
+                                    verticalAlignment = Alignment.CenterVertically
+                                ) {
+                                    Icon(
+                                        imageVector = Icons.Default.CheckCircle,
+                                        contentDescription = "Available Offline in Room",
+                                        modifier = Modifier.size(10.dp),
+                                        tint = MaterialTheme.colorScheme.primary
+                                    )
+                                    Spacer(modifier = Modifier.width(2.dp))
+                                    Text(
+                                        text = "Offline",
+                                        style = MaterialTheme.typography.labelSmall.copy(fontSize = 9.sp),
+                                        color = MaterialTheme.colorScheme.primary,
+                                        fontWeight = FontWeight.Bold
+                                    )
+                                }
+                            }
+                        }
+                    }
                 }
             }
 
