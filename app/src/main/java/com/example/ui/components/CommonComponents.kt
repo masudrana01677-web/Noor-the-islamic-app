@@ -10,6 +10,7 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.automirrored.filled.MenuBook
 import androidx.compose.material.icons.filled.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
@@ -79,7 +80,7 @@ fun NoorTopAppBar(
 enum class NoorNavDestination(val label: String, val icon: ImageVector, val tag: String) {
     HOME("Home", Icons.Default.Home, "nav_home"),
     PRAYER("Prayer", Icons.Default.AccessTime, "nav_prayer"),
-    QURAN("Quran", Icons.Default.MenuBook, "nav_quran"),
+    QURAN("Quran", Icons.AutoMirrored.Filled.MenuBook, "nav_quran"),
     QIBLA("Qibla", Icons.Default.Explore, "nav_qibla"),
     MORE("More", Icons.Default.Dashboard, "nav_more")
 }

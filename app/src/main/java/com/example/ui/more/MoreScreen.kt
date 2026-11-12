@@ -13,6 +13,7 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.automirrored.filled.VolumeUp
 import androidx.compose.material.icons.filled.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
@@ -457,6 +458,13 @@ fun HadithDetailScreen(viewModel: NoorViewModel, onBack: () -> Unit) {
                 onNavigationClick = onBack,
                 actions = {
                     IconButton(
+                        onClick = { viewModel.refreshDailyHadith() },
+                        modifier = Modifier.testTag("more_refresh_hadith_top_button")
+                    ) {
+                        Icon(Icons.Default.Refresh, contentDescription = "Refresh Hadith", tint = MaterialTheme.colorScheme.primary)
+                    }
+
+                    IconButton(
                         onClick = {
                             val sendIntent = Intent(Intent.ACTION_SEND).apply {
                                 putExtra(Intent.EXTRA_TEXT, "${hadith.textAr}\n\n\"${hadith.textEn}\"\n\n— ${hadith.book} (${hadith.hadithNumber}) [${hadith.grading}]")
@@ -605,9 +613,24 @@ fun HadithDetailScreen(viewModel: NoorViewModel, onBack: () -> Unit) {
                             modifier = Modifier.fillMaxWidth(),
                             shape = RoundedCornerShape(12.dp)
                         ) {
-                            Icon(Icons.Default.VolumeUp, contentDescription = null)
+                            Icon(Icons.AutoMirrored.Filled.VolumeUp, contentDescription = null)
                             Spacer(modifier = Modifier.width(8.dp))
                             Text("Listen to Translation Audio")
+                        }
+
+                        Spacer(modifier = Modifier.height(10.dp))
+
+                        // Refresh / Discover Another Hadith Button
+                        OutlinedButton(
+                            onClick = { viewModel.refreshDailyHadith() },
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .testTag("more_discover_hadith_button"),
+                            shape = RoundedCornerShape(12.dp)
+                        ) {
+                            Icon(Icons.Default.Refresh, contentDescription = null, tint = MaterialTheme.colorScheme.primary)
+                            Spacer(modifier = Modifier.width(8.dp))
+                            Text("Discover Another Hadith")
                         }
                     }
                 }

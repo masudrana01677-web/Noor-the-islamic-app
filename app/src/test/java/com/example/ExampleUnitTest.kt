@@ -72,7 +72,18 @@ class ExampleUnitTest {
         assertTrue(hadith.textAr.isNotEmpty())
         assertTrue(hadith.textEn.isNotEmpty())
         assertTrue(hadith.book.isNotEmpty())
-        assertEquals("Sahih (Authentic)", hadith.grading)
+    }
+
+    @Test
+    fun testHadithRefreshAndNext() {
+        val current = HadithRepository.getDailyHadith()
+        val randomNew = HadithRepository.getRandomHadith(excludeId = current.id)
+        assertNotEquals("Random Hadith should exclude the current ID when requested", current.id, randomNew.id)
+        assertTrue("Hadith text should not be empty", randomNew.textAr.isNotEmpty())
+
+        val next = HadithRepository.getNextHadith(current.id)
+        assertNotNull(next)
+        assertTrue(next.id in 1..HadithRepository.verifiedHadithList.size)
     }
 
     @Test

@@ -96,6 +96,123 @@ object HadithRepository {
             chapter = "Righteousness and Kindness",
             grading = "Sahih (Hasan Gharib)",
             commentary = "Charity in Islam is not restricted to wealth; an uplifting smile, kind gesture, or friendly glance carries heavenly reward."
+        ),
+        Hadith(
+            id = 8,
+            textAr = "مَنْ سَلَكَ طَرِيقًا يَلْتَمِسُ فِيهِ عِلْمًا، سَهَّلَ اللَّهُ لَهُ بِهِ طَرِيقًا إِلَى الْجَنَّةِ.",
+            textEn = "Whoever travels on a path in search of knowledge, Allah will make easy for him a path to Paradise.",
+            textBn = "যে ব্যক্তি জ্ঞানের সন্ধানে কোনো পথ অবলম্বন করে, আল্লাহ তার জন্য জান্নাতের পথ সহজ করে দেন।",
+            textMs = "Barangsiapa yang menempuh satu jalan untuk menuntut ilmu, maka Allah akan memudahkan baginya jalan ke syurga.",
+            book = "Sahih Muslim",
+            hadithNumber = "Hadith 2699",
+            narrator = "Abu Hurairah (RA)",
+            chapter = "Knowledge",
+            grading = "Sahih (Authentic)",
+            commentary = "Seeking beneficial knowledge, whether sacred or worldly knowledge used for the benefit of humanity, is among the highest virtues in Islam."
+        ),
+        Hadith(
+            id = 9,
+            textAr = "الطُّهُورُ شَطْرُ الإِيمَانِ، وَالْحَمْدُ لِلَّهِ تَمْلأُ الْمِيزَانَ.",
+            textEn = "Purity is half of faith, and saying 'Alhamdulillah' (Praise be to Allah) fills the scale.",
+            textBn = "পবিত্রতা ঈমানের অর্ধেক, আর 'আলহামদুলিল্লাহ' (সমস্ত প্রশংসা আল্লাহর) মিযানের পাল্লা পূর্ণ করে দেয়।",
+            textMs = "Kebersihan dan kesucian itu adalah sebahagian daripada iman, dan 'Alhamdulillah' memenuhi timbangan.",
+            book = "Sahih Muslim",
+            hadithNumber = "Hadith 223",
+            narrator = "Abu Malik al-Ash'ari (RA)",
+            chapter = "Purification",
+            grading = "Sahih (Authentic)",
+            commentary = "Outer cleanliness through Wudu and inner purity from arrogance and jealousy are foundational pillars of a believer's spiritual state."
+        ),
+        Hadith(
+            id = 10,
+            textAr = "الرَّاحِمُونَ يَرْحَمُهُمُ الرَّحْمَنُ، ارْحَمُوا مَنْ فِي الأَرْضِ يَرْحَمْكُمْ مَنْ فِي السَّمَاءِ.",
+            textEn = "The merciful are shown mercy by the Most Merciful. Show mercy to those on earth, and the One in the heavens will show mercy to you.",
+            textBn = "দয়াশীলদের প্রতি পরম দয়ালু আল্লাহ দয়া প্রদর্শন করেন। তোমরা জমিনবাসীর প্রতি দয়া কর, তবে আসমানবাসী তোমাদের প্রতি দয়া করবেন।",
+            textMs = "Orang-orang yang penyayang akan disayangi oleh Yang Maha Pengasih. Sayangilah siapa yang ada di bumi, nescaya kamu akan disayangi oleh yang di langit.",
+            book = "Sunan Abi Dawud & Jami` at-Tirmidhi",
+            hadithNumber = "Hadith 4941",
+            narrator = "Abdullah ibn Amr (RA)",
+            chapter = "Manners and Compassion",
+            grading = "Sahih (Authentic)",
+            commentary = "Mercy is all-encompassing, extending to family, orphans, strangers, animals, and the natural environment."
+        ),
+        Hadith(
+            id = 11,
+            textAr = "عَلَيْكُمْ بِالصِّدْقِ، فَإِنَّ الصِّدْقَ يَهْدِي إِلَى الْبِرِّ، وَإِنَّ الْبِرَّ يَهْدِي إِلَى الْجَنَّةِ.",
+            textEn = "Adhere to truthfulness, for truthfulness leads to righteousness, and righteousness leads to Paradise.",
+            textBn = "তোমরা সর্বদা সত্য অবলম্বন কর। কারণ সত্যবাদিতা পুণ্যের দিকে নিয়ে যায়, আর পুণ্য জান্নাতের দিকে পরিচালিত করে।",
+            textMs = "Hendaklah kamu sentiasa bercakap benar, kerana kebenaran itu membawa kepada kebaikan dan kebaikan itu membawa ke syurga.",
+            book = "Sahih al-Bukhari & Muslim",
+            hadithNumber = "Hadith 6094",
+            narrator = "Abdullah ibn Mas'ud (RA)",
+            chapter = "Good Manners and Sincerity",
+            grading = "Sahih (Authentic)",
+            commentary = "Truthfulness builds unshakeable peace of mind and trustworthy relationships, whereas deception erodes spiritual integrity."
+        ),
+        Hadith(
+            id = 12,
+            textAr = "الدُّعَاءُ هُوَ الْعِبَادَةُ.",
+            textEn = "Supplication (Du'a) is the essence of worship.",
+            textBn = "দোয়া (আল্লাহর কাছে প্রার্থনা) নিজেই একটি পূর্ণাঙ্গ ইবাদত।",
+            textMs = "Doa itu adalah intipati ibadah.",
+            book = "Sunan Abi Dawud & Jami` at-Tirmidhi",
+            hadithNumber = "Hadith 1479",
+            narrator = "An-Nu'man ibn Bashir (RA)",
+            chapter = "Supplications",
+            grading = "Sahih (Authentic)",
+            commentary = "When a servant raises hands in sincere prayer, they acknowledge their ultimate dependence upon the Creator."
+        ),
+        Hadith(
+            id = 13,
+            textAr = "مَنْ لا يَشْكُرُ النَّاسَ لا يَشْكُرُ اللَّهَ.",
+            textEn = "Whoever does not express gratitude to people does not show gratitude to Allah.",
+            textBn = "যে ব্যক্তি মানুষের প্রতি কৃতজ্ঞতা প্রকাশ করে না, সে আল্লাহর প্রতিও কৃতজ্ঞতা জ্ঞাপন করে না।",
+            textMs = "Sesiapa yang tidak berterima kasih kepada manusia, dia tidak bersyukur kepada Allah.",
+            book = "Sunan Abi Dawud & Jami` at-Tirmidhi",
+            hadithNumber = "Hadith 4811",
+            narrator = "Abu Hurairah (RA)",
+            chapter = "Virtues of Gratitude",
+            grading = "Sahih (Authentic)",
+            commentary = "Expressing heartfelt appreciation to those who help us is an integral part of thanking Allah Almighty."
+        ),
+        Hadith(
+            id = 14,
+            textAr = "وَمَنْ يَتَصَبَّرْ يُصَبِّرْهُ اللَّهُ، وَمَا أُعْطِيَ أَحَدٌ عَطَاءً خَيْرًا وَأَوْسَعَ مِنَ الصَّبْرِ.",
+            textEn = "Whoever practices patience, Allah will grant him patience. No one has been given a gift better and more comprehensive than patience.",
+            textBn = "যে ব্যক্তি ধৈর্য ধারণের চেষ্টা করে, আল্লাহ তাকে ধৈর্যশীল করেন। ধৈর্যের চেয়ে উত্তম ও প্রশস্ত আর কোনো দান কাউকে দেওয়া হয়নি।",
+            textMs = "Barangsiapa berusaha untuk sabar, maka Allah akan menjadikannya sabar. Dan tiada anugerah yang lebih baik dan lebih luas daripada kesabaran.",
+            book = "Sahih al-Bukhari & Muslim",
+            hadithNumber = "Hadith 1469",
+            narrator = "Abu Sa'id al-Khudri (RA)",
+            chapter = "Patience and Endurance",
+            grading = "Sahih (Authentic)",
+            commentary = "Patience (Sabr) is an active spiritual resilience that strengthens the soul through hardship and steady devotion."
+        ),
+        Hadith(
+            id = 15,
+            textAr = "رِضَى الرَّبِّ فِي رِضَى الْوَالِدِ، وَسَخَطُ الرَّبِّ فِي سَخَطِ الْوَالِدِ.",
+            textEn = "The pleasure of the Lord lies in the pleasure of the parent, and the displeasure of the Lord lies in the displeasure of the parent.",
+            textBn = "পিতার সন্তুষ্টির মধ্যেই রবের সন্তুষ্টি এবং পিতার অসন্তুষ্টির মধ্যেই রবের অসন্তুষ্টি নিহিত।",
+            textMs = "Keredaan Tuhan terletak pada keredaan ibu bapa, dan kemurkaan Tuhan terletak pada kemurkaan ibu bapa.",
+            book = "Jami` at-Tirmidhi",
+            hadithNumber = "Hadith 1899",
+            narrator = "Abdullah ibn Amr (RA)",
+            chapter = "Kindness to Parents",
+            grading = "Sahih (Authentic)",
+            commentary = "Honoring, respecting, and serving one's parents is the most direct avenue to obtaining divine pleasure and mercy."
+        ),
+        Hadith(
+            id = 16,
+            textAr = "مَنْ نَفَّسَ عَنْ مُؤْمِنٍ كُرْبَةً مِنْ كُرَبِ الدُّنْيَا، نَفَّسَ اللَّهُ عَنْهُ كُرْبَةً مِنْ كُرَبِ يَوْمِ الْقِيَامَةِ.",
+            textEn = "Whoever relieves a believer of a distress from the distresses of this world, Allah will relieve him of a distress from the distresses of the Day of Resurrection.",
+            textBn = "যে ব্যক্তি কোনো মুমিনের দুনিয়ার কোনো কষ্ট দূর করবে, আল্লাহ কিয়ামতের দিন তার কষ্টসমূহ থেকে একটি কষ্ট দূর করবেন।",
+            textMs = "Barangsiapa melepaskan kesusahan seorang mukmin di dunia, Allah akan melepaskan kesusahannya pada hari kiamat.",
+            book = "Sahih Muslim",
+            hadithNumber = "Hadith 2699",
+            narrator = "Abu Hurairah (RA)",
+            chapter = "Cooperation in Righteousness",
+            grading = "Sahih (Authentic)",
+            commentary = "Extending a helping hand to fellow human beings invites divine protection when one is most in need on the Day of Judgment."
         )
     )
 
@@ -107,5 +224,20 @@ object HadithRepository {
 
     fun getHadithById(id: Int): Hadith {
         return verifiedHadithList.firstOrNull { it.id == id } ?: verifiedHadithList.first()
+    }
+
+    fun getRandomHadith(excludeId: Int? = null): Hadith {
+        val candidates = if (excludeId != null && verifiedHadithList.size > 1) {
+            verifiedHadithList.filter { it.id != excludeId }
+        } else {
+            verifiedHadithList
+        }
+        return candidates.random()
+    }
+
+    fun getNextHadith(currentId: Int): Hadith {
+        val currentIndex = verifiedHadithList.indexOfFirst { it.id == currentId }
+        val nextIndex = if (currentIndex != -1) (currentIndex + 1) % verifiedHadithList.size else 0
+        return verifiedHadithList[nextIndex]
     }
 }

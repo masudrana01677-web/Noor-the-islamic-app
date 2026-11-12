@@ -336,14 +336,25 @@ class NoorViewModel(application: Application) : AndroidViewModel(application), S
         }
 
         // If all prayers passed today, next is tomorrow's Fajr
-        val (nextNameEn, nextNameAr, nextCal, targetMillis) = if (nextItem != null) {
-            arrayOf(nextItem.first, nextItem.second, nextItem.third, nextItem.third.timeInMillis)
+        val nextNameEn: String
+        val nextNameAr: String
+        val nextCal: Calendar
+        val targetMillis: Long
+
+        if (nextItem != null) {
+            nextNameEn = nextItem.first
+            nextNameAr = nextItem.second
+            nextCal = nextItem.third
+            targetMillis = nextItem.third.timeInMillis
         } else {
             val tomFajr = (schedule.fajr.clone() as Calendar).apply { add(Calendar.DAY_OF_YEAR, 1) }
-            arrayOf("Fajr", "الفجر", tomFajr, tomFajr.timeInMillis)
+            nextNameEn = "Fajr"
+            nextNameAr = "الفجر"
+            nextCal = tomFajr
+            targetMillis = tomFajr.timeInMillis
         }
 
-        val target = targetMillis as Long
+        val target = targetMillis
         val diffSec = maxOf(0L, (target - now) / 1000)
         val hours = diffSec / 3600
         val mins = (diffSec % 3600) / 60
@@ -359,9 +370,9 @@ class NoorViewModel(application: Application) : AndroidViewModel(application), S
         val progress = (elapsed.toFloat() / totalInterval.toFloat()).coerceIn(0f, 1f)
 
         _nextPrayer.value = NextPrayerInfo(
-            nameEn = nextNameEn as String,
-            nameAr = nextNameAr as String,
-            timeFormatted = timeFormat.format((nextCal as Calendar).time),
+            nameEn = nextNameEn,
+            nameAr = nextNameAr,
+            timeFormatted = timeFormat.format(nextCal.time),
             targetMillis = target,
             secondsRemaining = diffSec,
             countdownFormatted = countdownStr,
@@ -616,6 +627,19 @@ class NoorViewModel(application: Application) : AndroidViewModel(application), S
             dao.saveTasbih(updated)
             activeTasbih.value = updated
         }
+    }
+
+    // Hadith functions
+    fun refreshDailyHadith() {
+        val current = dailyHadith.value
+        val next = HadithRepository.getRandomHadith(excludeId = current.id)
+        dailyHadith.value = next
+    }
+
+    fun nextDailyHadith() {
+        val current = dailyHadith.value
+        val next = HadithRepository.getNextHadith(current.id)
+        dailyHadith.value = next
     }
 
     // Hadith audio TTS
